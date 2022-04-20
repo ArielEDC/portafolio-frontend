@@ -1,0 +1,8 @@
+/* FOOTER */
+footer{
+    background-color: var(--oscuro);
+}
+footer p{
+    color: var(--blanco);
+    text-align: center;
+}

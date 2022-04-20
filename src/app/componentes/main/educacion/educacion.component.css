@@ -1,0 +1,31 @@
+
+section{
+    background-color: var(--gris-claro);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    color: var(--oscuro);
+}
+.card{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0; 
+    border-bottom: 1px dotted var(--gris);   
+}
+.card:last-of-type{
+    border: none;
+}
+.card .editar{
+    margin-left: auto;
+}
+img{
+    max-height: 6rem;
+    max-width: 8rem;
+    margin: auto 1rem auto 0;
+}
+
+.iconos{
+    display: flex;
+    justify-content: space-between;
+}

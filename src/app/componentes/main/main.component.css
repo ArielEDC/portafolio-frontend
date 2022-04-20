@@ -1,0 +1,9 @@
+/* MAIN */
+.sobremi h1{
+    margin-bottom: 1rem;
+    color: var(--oscuro);
+}
+.sobremi>p{
+    font-weight: 700;
+    color: var(--oscuro);
+}

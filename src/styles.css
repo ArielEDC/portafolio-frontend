@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    /*pseudoelemnto (los dos puntos en el root lo define),
+     forma de almacenar variables (custom properties)*/
+
+    --blanco: #f2f2f2;
+    --oscuro: #222831;
+    --gris: #393e46;
+    --gris-claro: #9ca2ac;
+    --primario: #f05d23;
+    --secundario: #59a985;
+
+    --fuenteMonserrat: 'Montserrat', sans-serif;
+    --fuenteMarket: 'Permanent Marker', cursive;
+
+}
+
+
+/*box sizing*/
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+/* conversor hack (1rem==10px) */
+html{
+    font-size: 62.5%; /* hack para hacer la conversion 1rem = 10px*/
+}
+body{
+    font-size: 16px; /* hack para hacer la conversion 1rem = 10px*/
+    font-family: var(--fuenteMonserrat);
+    font-weight: 400;
+    background-image:linear-gradient(to top, var(--gris-claro) -50%, var(--blanco) 100%);
+}
+/** GENERALES **/
+*{
+    margin: 0;
+}
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+.sombra{
+    box-shadow: 0px 6px 10px 0px rgba(130,130,130,1);
+}
+
+
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+

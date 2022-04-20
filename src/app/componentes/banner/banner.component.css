@@ -1,0 +1,23 @@
+/* IMAGEN DE FONDO*/
+.imagen{
+    background-image: url(../../../assets/img/img-museo.jpg);
+    height: 40rem;
+    background-position-x: right;
+    background-position-y: center;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.imagen img{
+    border-radius: 50%;
+    position: absolute;
+    bottom: -3rem;
+    left: calc((50%) - 12.5rem);
+    height: 25rem;
+}
+@media(min-width: 480px){
+    .imagen img{
+        left: 4rem;      
+    }
+}
