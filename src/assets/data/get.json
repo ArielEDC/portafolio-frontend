@@ -1,0 +1,4 @@
+[{
+    "d": "fecha en formato MySQL",
+    "v": "valor del indicador para esa fecha"
+}]

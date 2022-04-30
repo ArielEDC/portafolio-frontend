@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SobreMiComponent } from './sobre-mi.component';
+import { SobreMiComponent } from './sobreMi.component';
 
 describe('SobreMiComponent', () => {
   let component: SobreMiComponent;
