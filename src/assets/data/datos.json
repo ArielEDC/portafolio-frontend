@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "nombre": "Ariel",
+        "apellido": "Díaz Carreño",
+        "email": "adiazcarreno@gmail.com",
+        "ciudad": "Cordoba",
+        "sobreMi": "Nacido en La Rioja, actualmente viviendo en Córdoba Capital",
+        "educacionCollection": [
+            {
+                "id": 4,
+                "institucion": "UNC -FCEFYN",
+                "titulo": "Ingenieria Industrial (incompleto)",
+                "fechaInicio": "2022-04-25",
+                "fechaFin": "2015-04-24",
+                "personaid": {
+                    "id": 1,
+                    "nombre": "Ariel",
+                    "apellido": "Díaz Carreño",
+                    "email": "adiazcarreno@gmail.com",
+                    "ciudad": "Cordoba",
+                    "sobreMi": "Nacido en La Rioja, actualmente viviendo en Córdoba Capital"
+                }
+            },
+            {
+                "id": 5,
+                "institucion": "Ministerio",
+                "titulo": "Desarrollador full stack",
+                "fechaInicio": "2022-04-25",
+                "fechaFin": "2015-04-24",
+                "personaid": {
+                    "id": 1,
+                    "nombre": "Ariel",
+                    "apellido": "Díaz Carreño",
+                    "email": "adiazcarreno@gmail.com",
+                    "ciudad": "Cordoba",
+                    "sobreMi": "Nacido en La Rioja, actualmente viviendo en Córdoba Capital"
+                }
+            }
+        ],
+        "proyectosCollection": [
+            {
+                "id": 1,
+                "nombre": "Ajedrez",
+                "descripcion": "Juego de tablero",
+                "link": "el clasico ajedrez",
+                "personaid": {
+                    "id": 1,
+                    "nombre": "Ariel",
+                    "apellido": "Díaz Carreño",
+                    "email": "adiazcarreno@gmail.com",
+                    "ciudad": "Cordoba",
+                    "sobreMi": "no mames huey"
+                }
+            }
+        ],
+        "experienciaLaboralCollection": [
+            {
+                "id": 6,
+                "trabajo": "Robotica Industrial",
+                "empresa": "Proto Automatismos Industriales",
+                "descripcion": "Robotica Fanuc, Kuka, Kawasaki",
+                "fechaInicio": "2017-06-04",
+                "fechaFin": "2021-06-04",
+                "personaid": {
+                    "id": 1,
+                    "nombre": "Ariel",
+                    "apellido": "Díaz Carreño",
+                    "email": "adiazcarreno@gmail.com",
+                    "ciudad": "Cordoba",
+                    "sobreMi": "no mames huey"
+                }
+            }
+        ],
+        "habilidadesCollection": [
+            {
+                "id": 11,
+                "habilidad": "Frontend",
+                "personaid": {
+                    "id": 1,
+                    "nombre": "Ariel",
+                    "apellido": "Díaz Carreño",
+                    "email": "adiazcarreno@gmail.com",
+                    "ciudad": "Cordoba",
+                    "sobreMi": "no mames huey"
+                }
+            },
+            {
+                "id": 15,
+                "habilidad": "Backend",
+                "personaid": {
+                    "id": 1,
+                    "nombre": "Ariel",
+                    "apellido": "Díaz Carreño",
+                    "email": "adiazcarreno@gmail.com",
+                    "ciudad": "Cordoba",
+                    "sobreMi": "no mames huey"
+                }
+            }
+        ]
+    }
+]

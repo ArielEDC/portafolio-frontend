@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioService } from 'src/app/servicio/portfolio.service';
 
 @Component({
   selector: 'app-sobre-mi',
@@ -7,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SobreMiComponent implements OnInit {
   
-  
-  mensaje:string = "Nacido en La Rioja, actualmente viviendo en Córdoba Capital";
+  miPortfolio:any;
   modificable:boolean =false;
 
-  constructor() { }
-
+  constructor(private datos:PortfolioService) { }
+  
   ngOnInit(): void {
+    this.datos.verPersona().subscribe(data=>{
+      this.miPortfolio = data;
+    });
   }
 
   habilitarEdicion(){
@@ -24,6 +27,11 @@ export class SobreMiComponent implements OnInit {
     }
   }
   modificar(){
+
+    this.datos.editarPersona(this.miPortfolio);
+    this.modificable = false;
   }
 
 }
+
+

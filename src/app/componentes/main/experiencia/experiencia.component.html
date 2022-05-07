@@ -1,27 +1,45 @@
 <section>
     <div class="iconos">
       <h2>Experiencia</h2>
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg (click)="agregarElemento()" class="icon icon-tabler icon-tabler-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
         <line x1="12" y1="5" x2="12" y2="19" />
         <line x1="5" y1="12" x2="19" y2="12" />
       </svg>
     </div>
-    <div class="card">
+    <div class="card" *ngFor="let exp of expList">
       <img src="img/proto.png" alt="proto">
       <div>
-        <h3>Robotica Industrial</h3>
-        <p>Proto Automatismos Industriales</p>
-        <p>Robotista - Fanuc, Kuka, Kawasaki</p>
-        <p>2017 - 2021</p>
+        <h3>{{exp.trabajo}}</h3>
+        <div class="elementos-editar">
+          <textarea *ngIf="modificable" [(ngModel)]="exp.trabajo"></textarea>    
+        </div>
+
+        <p>{{exp.empresa}}</p>
+        <div class="elementos-editar">
+          <textarea *ngIf="modificable" [(ngModel)]="exp.empresa"></textarea>    
+        </div>
+
+        <p>{{exp.descripcion}}</p>
+        <div class="elementos-editar">
+          <textarea *ngIf="modificable" [(ngModel)]="exp.descripcion"></textarea>    
+        </div>
+
+        <p>{{exp.fechaInicio}} - {{exp.fechaFin}}</p>
+        <div class="elementos-editar">
+          <textarea *ngIf="modificable" [(ngModel)]="exp.fechaInicio"></textarea>
+          <textarea *ngIf="modificable" [(ngModel)]="exp.fechaFin"></textarea>
+          <input class="icon" type="submit" *ngIf="modificable" value="modificar" (click)="modificarElemento(exp.id)">    
+        </div>
+
       </div>
       <div class="editar">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <svg (click)="habilitarEdicion(exp.id)" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
           <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
           <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <svg (click)="eliminarElemento(exp.id)" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
           <line x1="4" y1="7" x2="20" y2="7" />
           <line x1="10" y1="11" x2="10" y2="17" />

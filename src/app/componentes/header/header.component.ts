@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 
     // recibo los datos mediante http
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+    this.datosPortfolio.verPersona().subscribe(data =>{
       console.log(data);
     });
   }

@@ -6,7 +6,7 @@
     
     
     <div class="card">
-        <p>{{mensaje}}</p>
+        <p>{{miPortfolio.sobreMi}}</p>
         <div class="editar">
           <svg (click)="habilitarEdicion()" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -16,8 +16,8 @@
         </div>
     </div>
     <div class="elementos-editar">
-      <textarea *ngIf="modificable" [(ngModel)]="mensaje"></textarea>
-      <input type="submit" *ngIf="modificable" value="modificar" (click)="modificar()">    
+      <textarea *ngIf="modificable" [(ngModel)]="miPortfolio.sobreMi"></textarea>
+      <input class="icon" type="submit" *ngIf="modificable" value="modificar" (click)="modificar()">    
     </div>
 
     

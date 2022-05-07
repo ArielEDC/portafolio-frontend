@@ -22,6 +22,9 @@ section{
     display: flex;
     flex-direction: column;
 }
+.icon{
+    cursor: pointer;
+}
 textarea{
     border: none;
     border-radius: 1rem;
