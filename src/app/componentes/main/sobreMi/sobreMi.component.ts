@@ -16,7 +16,8 @@ export class SobreMiComponent implements OnInit {
   ngOnInit(): void {
     this.datos.verPersona().subscribe(data=>{
       this.miPortfolio = data;
-    });
+      console.log(this.miPortfolio);
+    })
   }
 
   habilitarEdicion(){
@@ -27,8 +28,9 @@ export class SobreMiComponent implements OnInit {
     }
   }
   modificar(){
-
-    this.datos.editarPersona(this.miPortfolio);
+    let port = this.miPortfolio;
+    this.datos.editarPersona(port);
+    alert("dato modificado");
     this.modificable = false;
   }
 

@@ -8,14 +8,11 @@ import { PortfolioService } from 'src/app/servicio/portfolio.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private datosPortfolio:PortfolioService) { }
+  constructor() { }
 
   ngOnInit(): void {
 
-    // recibo los datos mediante http
-    this.datosPortfolio.verPersona().subscribe(data =>{
-      console.log(data);
-    });
+    
   }
 
 }

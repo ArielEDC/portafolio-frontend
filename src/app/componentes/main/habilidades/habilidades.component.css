@@ -8,10 +8,16 @@ section{
 }
 .card{
     display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 0.5rem 0;
     margin: 0.5rem 0; 
     border-bottom: 1px dotted var(--gris);   
+}
+@media(min-width: 566px){
+    .card{
+        flex-direction: row;
+    }
 }
 .card:last-of-type{
     border: none;
@@ -31,4 +37,46 @@ ul{
 .iconos{
     display: flex;
     justify-content: space-between;
+}
+
+.habilidad{
+    display: flex;
+    flex-direction: column;
+}
+.subhabilidades{
+    display: flex;
+    flex-direction: column;
+    /*align-items: flex-start;*/
+
+}
+
+
+.elementos-editar{
+    display: flex;
+    flex-direction: column;
+}
+.icon{
+    cursor: pointer;
+}
+textarea{
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+input{
+    margin-top: 1rem;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    background-color: var(--btn-verde);
+}
+.icon-eliminar{
+    background-color: var(--btn-rojo);
+}
+@media(min-width: 480px){
+    input{
+        width: 20rem;
+        margin-left: auto;
+    }
 }

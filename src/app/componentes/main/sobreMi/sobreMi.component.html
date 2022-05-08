@@ -1,10 +1,8 @@
 
 <section>
     
-      <h2>Sobre mi</h2>
-      
-    
-    
+    <h2>Sobre mi</h2>
+         
     <div class="card">
         <p>{{miPortfolio.sobreMi}}</p>
         <div class="editar">
@@ -17,6 +15,7 @@
     </div>
     <div class="elementos-editar">
       <textarea *ngIf="modificable" [(ngModel)]="miPortfolio.sobreMi"></textarea>
+      
       <input class="icon" type="submit" *ngIf="modificable" value="modificar" (click)="modificar()">    
     </div>
 

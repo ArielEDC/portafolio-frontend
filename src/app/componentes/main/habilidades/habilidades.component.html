@@ -1,7 +1,7 @@
 <section>
     <div class="iconos">
       <h2>Habilidades</h2>
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg (click)="agregarElemento()" class="icon icon-tabler icon-tabler-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
         <line x1="12" y1="5" x2="12" y2="19" />
         <line x1="5" y1="12" x2="19" y2="12" />
@@ -9,23 +9,39 @@
     </div>
     
     <div class="stack">       
-      <div class="card">
-          <h3>Front End</h3>
-          <ul>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>Bootstrap</li>
-              <li>JavaScript</li>
-              <li>TypeScript</li>
-              <li>Angular</li>
+      <div class="card" *ngFor="let habilidad of habilidadList">
+          <div class="habilidad">
+            <h3>{{habilidad.habilidad}}</h3>
+  
+            <textarea *ngIf="modificable" [(ngModel)]="habilidad.habilidad"></textarea> 
+  
+            <input class="icon" type="submit" *ngIf="modificable" value="añadir habilidad" (click)="agregarSubHabilidad(habilidad.id)"> 
+  
+            <input class="icon" type="submit" *ngIf="modificable" value="modificar" (click)="modificarElemento(habilidad.id)"> 
+          </div>
+
+          <ul >
+              <li *ngFor="let subHab of subHabilidadList">
+                <p class="subhabilidades" *ngIf="subHab.habilidadId.id===habilidad.id">
+                  {{subHab.subHabilidad}}
+
+                  <textarea *ngIf="modificable" [(ngModel)]="subHab.subHabilidad"></textarea> 
+
+                  <input class="icon" type="submit" *ngIf="modificable" value="modificar" (click)="modificarSubHabilidad(subHab.id)">  
+                  <input class="icon icon-eliminar" type="submit" *ngIf="modificable" value="eliminar" (click)="eliminarSubHabilidad(subHab.id)">  
+                </p>
+              </li>
+              
+
           </ul>
+
           <div class="editar">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg (click)="habilitarEdicion()" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
               <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
               <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg (click)="eliminarElemento(habilidad.id)" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
               <line x1="4" y1="7" x2="20" y2="7" />
               <line x1="10" y1="11" x2="10" y2="17" />
@@ -36,55 +52,7 @@
           </div>
       </div>
       
-      <div class="card">              
-        <h3>Back End</h3>
-          <ul>
-              <li>Java Web</li>
-              <li>Spring Boot</li>
-              <li>MySQL</li>
-          </ul>
-          <div class="editar">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-              <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <line x1="4" y1="7" x2="20" y2="7" />
-              <line x1="10" y1="11" x2="10" y2="17" />
-              <line x1="14" y1="11" x2="14" y2="17" />
-              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-            </svg>
-          </div>
-      </div>
-
-      <div class="card">
-          <h3>Skills</h3>
-          <ul>
-              <li>VS Code</li>
-              <li>Net Beans</li>
-              <li>git</li>
-              <li>Firebase</li>
-          </ul>
-          <div class="editar">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-              <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <line x1="4" y1="7" x2="20" y2="7" />
-              <line x1="10" y1="11" x2="10" y2="17" />
-              <line x1="14" y1="11" x2="14" y2="17" />
-              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-            </svg>
-          </div>
-      </div>
-  </div> 
+    </div> 
 
 
   </section>
