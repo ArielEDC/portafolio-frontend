@@ -13,11 +13,11 @@
           <div class="habilidad">
             <h3>{{habilidad.habilidad}}</h3>
   
-            <textarea *ngIf="modificable" [(ngModel)]="habilidad.habilidad"></textarea> 
+            <textarea *ngIf="modificable[habilidad.id]" [(ngModel)]="habilidad.habilidad"></textarea> 
   
-            <input class="icon" type="submit" *ngIf="modificable" value="añadir habilidad" (click)="agregarSubHabilidad(habilidad.id)"> 
+            <input class="icon" type="submit" *ngIf="modificable[habilidad.id]" value="añadir habilidad" (click)="agregarSubHabilidad(habilidad.id)"> 
   
-            <input class="icon" type="submit" *ngIf="modificable" value="modificar" (click)="modificarElemento(habilidad.id)"> 
+            <input class="icon" type="submit" *ngIf="modificable[habilidad.id]" value="modificar" (click)="modificarElemento(habilidad.id)"> 
           </div>
 
           <ul >
@@ -25,10 +25,10 @@
                 <p class="subhabilidades" *ngIf="subHab.habilidadId.id===habilidad.id">
                   {{subHab.subHabilidad}}
 
-                  <textarea *ngIf="modificable" [(ngModel)]="subHab.subHabilidad"></textarea> 
+                  <textarea *ngIf="modificable[habilidad.id]" [(ngModel)]="subHab.subHabilidad"></textarea> 
 
-                  <input class="icon" type="submit" *ngIf="modificable" value="modificar" (click)="modificarSubHabilidad(subHab.id)">  
-                  <input class="icon icon-eliminar" type="submit" *ngIf="modificable" value="eliminar" (click)="eliminarSubHabilidad(subHab.id)">  
+                  <input class="icon" type="submit" *ngIf="modificable[habilidad.id]" value="modificar" (click)="modificarSubHabilidad(subHab.id)">  
+                  <input class="icon icon-eliminar" type="submit" *ngIf="modificable[habilidad.id]" value="eliminar" (click)="eliminarSubHabilidad(subHab.id)">  
                 </p>
               </li>
               
@@ -36,7 +36,7 @@
           </ul>
 
           <div class="editar">
-            <svg (click)="habilitarEdicion()" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg (click)="habilitarEdicion(habilidad.id)" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
               <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
               <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />

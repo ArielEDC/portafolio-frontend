@@ -9,7 +9,7 @@ import { PortfolioService } from 'src/app/servicio/portfolio.service';
 export class ExperienciaComponent implements OnInit {
 
   expList:any;
-  modificable:boolean = false;
+  modificable:boolean[] = [];
   exp:any={
         "id": 0,
         "trabajo": "Robotica Industrial",
@@ -29,14 +29,17 @@ export class ExperienciaComponent implements OnInit {
     this.datos.verExp().subscribe(data=>{
       this.expList = data;
     })
+    for(let exp of this.expList){
+      this.modificable.push(false);
+    }
   }
 
   habilitarEdicion(id:number){
 
-    if(this.modificable){
-      this.modificable = false;
+    if(this.modificable[id]===true){
+      this.modificable[id] = false;
     }else{
-      this.modificable = true;
+      this.modificable[id] = true;
     }
   }
 
@@ -56,7 +59,7 @@ export class ExperienciaComponent implements OnInit {
       }
     }
     alert("elemento modificado");
-    this.modificable = false;
+    this.modificable[id] = false;
   }
 
 

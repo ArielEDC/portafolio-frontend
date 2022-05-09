@@ -13,18 +13,18 @@
       <div>
         <h3>{{proy.nombre}}</h3>
         <div class="elementos-editar">
-          <textarea *ngIf="modificable" [(ngModel)]="proy.nombre"></textarea>   
+          <textarea *ngIf="modificable[proy.id]" [(ngModel)]="proy.nombre"></textarea>   
         </div>
 
         <p>{{proy.descripcion}}</p>
         <div class="elementos-editar">
-          <textarea *ngIf="modificable" [(ngModel)]="proy.descripcion"></textarea>   
+          <textarea *ngIf="modificable[proy.id]" [(ngModel)]="proy.descripcion"></textarea>   
         </div>
 
         <a [href]="(proy.link)">{{proy.link}}</a>
         <div class="elementos-editar">
-          <textarea *ngIf="modificable" [(ngModel)]="proy.link"></textarea>  
-          <input class="icon" type="submit" *ngIf="modificable" value="modificar" (click)="modificarElemento(proy.id)">  
+          <textarea *ngIf="modificable[proy.id]" [(ngModel)]="proy.link"></textarea>  
+          <input class="icon" type="submit" *ngIf="modificable[proy.id]" value="modificar" (click)="modificarElemento(proy.id)">  
         </div>
       </div>
       <div class="editar">

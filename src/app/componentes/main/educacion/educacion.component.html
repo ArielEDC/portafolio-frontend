@@ -13,19 +13,19 @@
       <div>
         <h3>{{educacion.institucion}}</h3>
         <div class="elementos-editar">
-          <textarea *ngIf="modificable" [(ngModel)]="educacion.institucion"></textarea>    
+          <textarea *ngIf="modificable[educacion.id]" [(ngModel)]="educacion.institucion"></textarea>    
         </div>
 
         <p>{{educacion.titulo}}</p>
         <div class="elementos-editar">
-          <textarea *ngIf="modificable" [(ngModel)]="educacion.titulo"></textarea>   
+          <textarea *ngIf="modificable[educacion.id]" [(ngModel)]="educacion.titulo"></textarea>   
         </div>
 
         <p>Inicio: {{educacion.fechaInicio}} - Fin: {{educacion.fechaFin}}</p>
         <div class="elementos-editar">
-          <textarea *ngIf="modificable" [(ngModel)]="educacion.fechaInicio"></textarea>
-          <textarea *ngIf="modificable" [(ngModel)]="educacion.fechaFin"></textarea>
-          <input class="icon" type="submit" *ngIf="modificable" value="modificar" (click)="modificarElemento(educacion.id)">    
+          <textarea *ngIf="modificable[educacion.id]" [(ngModel)]="educacion.fechaInicio"></textarea>
+          <textarea *ngIf="modificable[educacion.id]" [(ngModel)]="educacion.fechaFin"></textarea>
+          <input class="icon" type="submit" *ngIf="modificable[educacion.id]" value="modificar" (click)="modificarElemento(educacion.id)">    
         </div>
       </div>
       <div class="editar">

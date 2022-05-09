@@ -9,7 +9,7 @@ import { PortfolioService } from 'src/app/servicio/portfolio.service';
 export class EducacionComponent implements OnInit {
 
   educacionList:any;
-  modificable:boolean =false;
+  modificable:boolean[] = [];
   edu:any={"id": 0,
     "institucion": "institucion",
     "titulo": "titulo",
@@ -22,16 +22,19 @@ export class EducacionComponent implements OnInit {
   ngOnInit(): void {
     this.datos.verEducacion().subscribe(data=>{
       this.educacionList = data;
-    })
+    });
+    for(let educacion of this.educacionList){
+      this.modificable.push(false);
+    }
   }
 
 
   habilitarEdicion(id:number){
 
-    if(this.modificable){
-      this.modificable = false;
+    if(this.modificable[id]===true){
+      this.modificable[id] = false;
     }else{
-      this.modificable = true;
+      this.modificable[id] = true;
     }
   }
   agregarElemento(){
@@ -52,7 +55,7 @@ export class EducacionComponent implements OnInit {
       }
     }
     alert("elemento modificado");
-    this.modificable = false;
+    this.modificable[id] = false;
   }
 
 }

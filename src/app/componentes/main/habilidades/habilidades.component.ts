@@ -12,7 +12,7 @@ export class HabilidadesComponent implements OnInit {
   subHabilidadList:any;
   nuevaLista:any;
   corresponde:boolean = false;
-  modificable:boolean =false;
+  modificable:boolean[] = [];
   hab:any={
     "id": 0,
     "habilidad": "Frontend",
@@ -35,13 +35,16 @@ export class HabilidadesComponent implements OnInit {
     this.datos.verSubHab().subscribe(data=>{
       this.subHabilidadList = data;
     })
+    for(let hab of this.habilidadList){
+      this.modificable.push(false);
+    }
   }
-  habilitarEdicion(){
+  habilitarEdicion(id:number){
 
-    if(this.modificable){
-      this.modificable = false;
+    if(this.modificable[id]){
+      this.modificable[id] = false;
     }else{
-      this.modificable = true;
+      this.modificable[id] = true;
     }
   }
   agregarElemento(){
@@ -63,12 +66,11 @@ export class HabilidadesComponent implements OnInit {
   eliminarElemento(id:number){
     this.datos.eliminarHab(id);
     alert("elemento eliminado");
-    this.modificable = false;
+    this.modificable[id] = false;
   }
   eliminarSubHabilidad(id:number){
     this.datos.eliminarSubHab(id);
     alert("elemento eliminado");
-    this.modificable = false;
   }
   modificarElemento(id:number){
     for(let hab of this.habilidadList){
@@ -77,17 +79,15 @@ export class HabilidadesComponent implements OnInit {
       }
     }
     alert("elemento modificado");
-    this.modificable = false;
+    this.modificable[id] = false;
   }
   modificarSubHabilidad(id:number){
     for(let hab of this.subHabilidadList){
       if(hab.id === id){
         this.datos.editarSubHab(hab);
-        console.log(hab);
       }
     }
     alert("elemento modificado");
-    this.modificable = false;
   }
 
 

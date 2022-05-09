@@ -12,24 +12,24 @@
       <div>
         <h3>{{exp.trabajo}}</h3>
         <div class="elementos-editar">
-          <textarea *ngIf="modificable" [(ngModel)]="exp.trabajo"></textarea>    
+          <textarea *ngIf="modificable[exp.id]" [(ngModel)]="exp.trabajo"></textarea>    
         </div>
 
         <p>{{exp.empresa}}</p>
         <div class="elementos-editar">
-          <textarea *ngIf="modificable" [(ngModel)]="exp.empresa"></textarea>    
+          <textarea *ngIf="modificable[exp.id]" [(ngModel)]="exp.empresa"></textarea>    
         </div>
 
         <p>{{exp.descripcion}}</p>
         <div class="elementos-editar">
-          <textarea *ngIf="modificable" [(ngModel)]="exp.descripcion"></textarea>    
+          <textarea *ngIf="modificable[exp.id]" [(ngModel)]="exp.descripcion"></textarea>    
         </div>
 
         <p>{{exp.fechaInicio}} - {{exp.fechaFin}}</p>
         <div class="elementos-editar">
-          <textarea *ngIf="modificable" [(ngModel)]="exp.fechaInicio"></textarea>
-          <textarea *ngIf="modificable" [(ngModel)]="exp.fechaFin"></textarea>
-          <input class="icon" type="submit" *ngIf="modificable" value="modificar" (click)="modificarElemento(exp.id)">    
+          <textarea *ngIf="modificable[exp.id]" [(ngModel)]="exp.fechaInicio"></textarea>
+          <textarea *ngIf="modificable[exp.id]" [(ngModel)]="exp.fechaFin"></textarea>
+          <input class="icon" type="submit" *ngIf="modificable[exp.id]" value="modificar" (click)="modificarElemento(exp.id)">    
         </div>
 
       </div>

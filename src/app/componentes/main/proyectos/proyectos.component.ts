@@ -9,7 +9,7 @@ import { PortfolioService } from 'src/app/servicio/portfolio.service';
 export class ProyectosComponent implements OnInit {
 
   proyList:any;
-  modificable:boolean=false;
+  modificable:boolean[] = [];
   proy:any={
         "id": 0,
         "nombre": "nombre",
@@ -25,15 +25,18 @@ export class ProyectosComponent implements OnInit {
   ngOnInit(): void {
     this.datos.verProy().subscribe(data=>{
       this.proyList = data;
-    })
+    });
+    for(let proy of this.proyList){
+      this.modificable.push(false);
+    }
   }
 
   habilitarEdicion(id:number){
 
-    if(this.modificable){
-      this.modificable = false;
+    if(this.modificable[id]){
+      this.modificable[id] = false;
     }else{
-      this.modificable = true;
+      this.modificable[id] = true;
     }
   }
 
@@ -53,7 +56,7 @@ export class ProyectosComponent implements OnInit {
       }
     }
     alert("elemento modificado");
-    this.modificable = false;
+    this.modificable[id] = false;
   }
 
 }
