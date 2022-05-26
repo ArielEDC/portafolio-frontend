@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
 
 @Component({
@@ -17,7 +19,9 @@ export class EducacionComponent implements OnInit {
     "fechaFin": "2022-05-30",
     "personaid": 1};
   
-  constructor(private datos:PortfolioService) { }
+    logeado: boolean = this.auth.logIn;
+  
+  constructor(private datos:PortfolioService, private auth:AuthService) { }
 
   ngOnInit(): void {
     this.datos.verEducacion().subscribe(data=>{
@@ -41,11 +45,13 @@ export class EducacionComponent implements OnInit {
     let edu=this.edu;
     this.educacionList.push(this.datos.nuevaEducacion(edu));
     alert("elemento agregardo");
+
   }
 
   eliminarElemento(id:number){
     this.datos.eliminarEducacion(id);
     alert("elemento eliminado");
+
   }
 
   modificarElemento(id:number){
@@ -58,4 +64,17 @@ export class EducacionComponent implements OnInit {
     this.modificable[id] = false;
   }
 
+
+  img(id:number):any{
+    for(let educacion of this.educacionList){
+      if(educacion.id === id){
+        if(educacion.imagen !== null && educacion.imagen !== ""){
+          return educacion.imagen;
+        }
+        else{
+          return "https://concepto.de/wp-content/uploads/2014/08/Institucion.jpg";
+        }
+      }
+    }
+  }
 }

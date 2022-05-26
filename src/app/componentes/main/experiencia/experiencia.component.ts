@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth.service';
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
 
 @Component({
@@ -22,8 +24,10 @@ export class ExperienciaComponent implements OnInit {
         }
       }
 
+    logeado: boolean = this.auth.logIn;
 
-  constructor(private datos:PortfolioService) { }
+
+  constructor(private datos:PortfolioService, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.datos.verExp().subscribe(data=>{
@@ -60,6 +64,19 @@ export class ExperienciaComponent implements OnInit {
     }
     alert("elemento modificado");
     this.modificable[id] = false;
+  }
+
+  img(id:number):any{
+    for(let exp of this.expList){
+      if(exp.id === id){
+        if(exp.imagen !== null && exp.imagen !== ""){
+          return exp.imagen;
+        }
+        else{
+          return "https://enlinea.santotomas.cl/wp-content/uploads/sites/2/2016/08/trabajo-social-739x465.jpg";
+        }
+      }
+    }
   }
 
 

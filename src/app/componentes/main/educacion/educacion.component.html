@@ -1,7 +1,7 @@
 <section>
     <div class="iconos">
       <h2>Educacion</h2>
-      <svg (click)="agregarElemento()" class="icon icon-tabler icon-tabler-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg *ngIf="logeado" (click)="agregarElemento()" class="icon icon-tabler icon-tabler-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
         <line x1="12" y1="5" x2="12" y2="19" />
         <line x1="5" y1="12" x2="19" y2="12" />
@@ -9,7 +9,7 @@
     </div>
 
     <div class="card" *ngFor="let educacion of educacionList">
-      <img src="img/ministerio.png" alt="logo arg prog">
+      <img [src]="img(educacion.id)" [alt]="educacion.id">
       <div>
         <h3>{{educacion.institucion}}</h3>
         <div class="elementos-editar">
@@ -25,10 +25,12 @@
         <div class="elementos-editar">
           <textarea *ngIf="modificable[educacion.id]" [(ngModel)]="educacion.fechaInicio"></textarea>
           <textarea *ngIf="modificable[educacion.id]" [(ngModel)]="educacion.fechaFin"></textarea>
+          <p *ngIf="modificable[educacion.id]">URL del Logo</p>
+          <textarea *ngIf="modificable[educacion.id]" [(ngModel)]="educacion.imagen"></textarea>
           <input class="icon" type="submit" *ngIf="modificable[educacion.id]" value="modificar" (click)="modificarElemento(educacion.id)">    
         </div>
       </div>
-      <div class="editar">
+      <div class="editar" *ngIf="logeado">
         <svg (click)="habilitarEdicion(educacion.id)"class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
           <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />

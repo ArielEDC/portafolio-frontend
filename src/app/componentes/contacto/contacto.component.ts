@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
 
 @Component({
@@ -8,10 +10,42 @@ import { PortfolioService } from 'src/app/servicio/portfolio.service';
 })
 export class ContactoComponent implements OnInit {
 
-  constructor(private datos:PortfolioService) { }
+  form:FormGroup;
+
+  constructor(private formBuilder:FormBuilder, private datos:PortfolioService, private ruta:Router) { 
+
+    this.form = this.formBuilder.group({
+      nombre:["",[Validators.required]],
+      email:["",[Validators.required, Validators.email]],
+      mensaje:["",[Validators.required]]
+    })
+
+  }
 
   ngOnInit(): void {
   }
 
-  
+  get Nombre(){
+    return this.form.get("nombre");
+  }
+  get Email(){
+    return this.form.get("email");
+  }
+  get Mensaje(){
+    return this.form.get("mensaje");
+  }
+
+  onEnviar(event: Event){
+    event.preventDefault;
+
+    if(this.form.valid){
+
+      this.datos.nuevoMensaje(this.form.value);
+
+      alert("gracias por escribir, me contactaré contigo proximamente!");
+      this.ruta.navigate(['']);
+    }else{
+      this.form.markAllAsTouched();
+    }
+  }
 }

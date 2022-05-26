@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth.service';
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
 
 @Component({
@@ -11,12 +12,13 @@ export class SobreMiComponent implements OnInit {
   miPortfolio:any;
   modificable:boolean =false;
 
-  constructor(private datos:PortfolioService) { }
+  logeado: boolean = this.auth.logIn;
+
+  constructor(private datos:PortfolioService, private auth:AuthService) { }
   
   ngOnInit(): void {
     this.datos.verPersona().subscribe(data=>{
       this.miPortfolio = data;
-      console.log(this.miPortfolio);
     })
   }
 

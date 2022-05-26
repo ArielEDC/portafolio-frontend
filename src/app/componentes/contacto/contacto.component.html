@@ -4,13 +4,37 @@
     <p>Cualquier consulta, tenes mis redes sociales, o dejame un mensaje por aqui</p>
     <div class="card">
         
-        <form action="http://localhost:8080/contacto/nuevo" method="POST">
+        <form [formGroup]="form" method="POST" (ngSubmit)="onEnviar($event)">
             <label for="nombre">Nombre: </label>
-            <input type="text">
+            <input type="text" formControlName="nombre">
+
+            <div *ngIf="Nombre?.errors  && Nombre?.touched">    
+                <p *ngIf="Nombre?.hasError('required')" class="error">
+                    El Usuario es requerido.
+                </p>
+            </div>
+
             <label for="email">E-mail: </label>
-            <input type="text">
+            <input type="email" formControlName="email">
+
+            <div *ngIf="Email?.errors  && Email?.touched">    
+                <p *ngIf="Email?.hasError('required')" class="error">
+                    El Email es requerido.
+                </p>
+                <p *ngIf="Email?.hasError('email')" class="error">
+                    El formato del Email debe ser válido.
+                  </p>
+            </div>
+
             <label for="mensaje">Mensaje: </label>
-            <textarea name="mensaje" id="" cols="30" rows="10"></textarea>
+            <textarea name="mensaje" id="" cols="30" rows="10" formControlName="mensaje"></textarea>
+
+            <div *ngIf="Mensaje?.errors  && Mensaje?.touched">    
+                <p *ngIf="Mensaje?.hasError('required')" class="error">
+                    El mensaje es requerido.
+                </p>
+            </div>
+
             
             <input type="submit" name="enviar">
 

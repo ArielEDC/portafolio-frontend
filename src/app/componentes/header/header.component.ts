@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/servicio/portfolio.service';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +8,18 @@ import { PortfolioService } from 'src/app/servicio/portfolio.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  logeado: boolean = this.auth.logIn;
+
+  constructor(private auth:AuthService) { }
 
   ngOnInit(): void {
 
-    
+  }
+
+  
+  logout():void{
+    this.auth.logout();
+    location.reload();
   }
 
 }

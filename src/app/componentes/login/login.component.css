@@ -3,7 +3,7 @@ section{
     background-color: var(--gris-claro);
     border-radius: 1rem;
     padding: 1rem 2rem;
-    margin: 1rem;
+    margin: 4rem 1rem;
     color: var(--oscuro);
 }
 .card{
@@ -32,8 +32,8 @@ input, textarea{
     background-color: var(--oscuro);
     color: var(--blanco);
     width: 15rem; 
-    margin-left: auto; 
-    cursor: pointer;  
+    margin-left: auto;   
+    cursor: pointer;
 }
 
 .error{

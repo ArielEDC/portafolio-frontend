@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth.service';
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
 
 @Component({
@@ -25,8 +26,9 @@ export class HabilidadesComponent implements OnInit {
     "habilidadId": {
         "id": 11}
     }
+    logeado:boolean = this.auth.logIn;
 
-  constructor(private datos:PortfolioService) { }
+  constructor(private datos:PortfolioService,private auth:AuthService) { }
 
   ngOnInit(): void {
     this.datos.verHab().subscribe(data=>{

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth.service';
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
 
 @Component({
@@ -19,8 +20,9 @@ export class ProyectosComponent implements OnInit {
             "id": 1
         }
   }
+  logeado:boolean = this.auth.logIn;
 
-  constructor(private datos:PortfolioService) { }
+  constructor(private datos:PortfolioService, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.datos.verProy().subscribe(data=>{

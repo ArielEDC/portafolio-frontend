@@ -1,6 +1,6 @@
 <div class="header-bg">
     <header class="contenedor">
-      <a href="index.html">ArielDC <img src="../assets/img/APLogo-20-20.png" alt="Argentina Programa"> </a>
+      <a routerLink="/">ArielDC <img src="../assets/img/APLogo-20-20.png" alt="Argentina Programa"> </a>
       <div class="redes">
         <a href="https://www.facebook.com/ariel.d.carreno">
           <svg class="icon icon-tabler icon-tabler-brand-facebook" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#f2f2f2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -23,7 +23,8 @@
             <path d="M9 10a0.5 .5 0 0 0 1 0v-1a0.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a0.5 .5 0 0 0 0 -1h-1a0.5 .5 0 0 0 0 1"></path>
           </svg>
         </a>
-          <p>Login</p>
+          <p routerLink="/login" *ngIf="!logeado">Log In</p>
+          <p routerLink="/" (click)="logout()" *ngIf="logeado" class="logout">Log Out</p>
     </div>
   </header>
   </div>

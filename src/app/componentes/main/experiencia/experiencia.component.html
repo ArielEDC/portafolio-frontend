@@ -1,14 +1,14 @@
 <section>
     <div class="iconos">
       <h2>Experiencia</h2>
-      <svg (click)="agregarElemento()" class="icon icon-tabler icon-tabler-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg *ngIf="logeado" (click)="agregarElemento()" class="icon icon-tabler icon-tabler-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
         <line x1="12" y1="5" x2="12" y2="19" />
         <line x1="5" y1="12" x2="19" y2="12" />
       </svg>
     </div>
     <div class="card" *ngFor="let exp of expList">
-      <img src="img/proto.png" alt="proto">
+      <img [src]="img(exp.id)" [alt]="exp.id">
       <div>
         <h3>{{exp.trabajo}}</h3>
         <div class="elementos-editar">
@@ -25,15 +25,18 @@
           <textarea *ngIf="modificable[exp.id]" [(ngModel)]="exp.descripcion"></textarea>    
         </div>
 
-        <p>{{exp.fechaInicio}} - {{exp.fechaFin}}</p>
+        <p>Inicio: {{exp.fechaInicio}} - Fin: {{exp.fechaFin}}</p>
         <div class="elementos-editar">
           <textarea *ngIf="modificable[exp.id]" [(ngModel)]="exp.fechaInicio"></textarea>
           <textarea *ngIf="modificable[exp.id]" [(ngModel)]="exp.fechaFin"></textarea>
+          <p *ngIf="modificable[exp.id]">URL del Logo</p>
+          <textarea *ngIf="modificable[exp.id]" [(ngModel)]="exp.imagen"></textarea>
+
           <input class="icon" type="submit" *ngIf="modificable[exp.id]" value="modificar" (click)="modificarElemento(exp.id)">    
         </div>
 
       </div>
-      <div class="editar">
+      <div class="editar" *ngIf="logeado">
         <svg (click)="habilitarEdicion(exp.id)" class="icon icon-tabler icon-tabler-pencil" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
           <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />

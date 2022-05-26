@@ -1,0 +1,36 @@
+
+<section>
+    <h2>Iniciar Session</h2>
+
+    <div class="card">
+        
+        <form [formGroup]="form" method="POST" (ngSubmit)="onEnviar($event)">
+            <label for="user">Usuario: </label>
+            <input type="text" formControlName="nombreUsuario">
+
+            <div *ngIf="User?.errors  && User?.touched">    
+                <p *ngIf="User?.hasError('required')" class="error">
+                    El Usuario es requerido.
+                </p>
+                <p *ngIf="User?.hasError('User')" class="error">
+                    El formato del Usuario debe ser válido.
+                  </p>
+            </div>
+
+            <label for="password">Password:  </label>
+            <input type="password" formControlName="password">
+
+            <div *ngIf="Password?.errors  && Password?.touched">
+                <p *ngIf="Password?.hasError('required')" class="error border-danger">
+                  El password es requerido.
+                </p>
+                <p *ngIf="Password?.errors?.['minlength']" class="error">
+                  El password debe ser de 8 o más caracteres.
+                </p>
+              </div>
+                        
+            <input type="submit" name="Log In" value="Log In" >
+            
+        </form>
+    </div>
+</section>
