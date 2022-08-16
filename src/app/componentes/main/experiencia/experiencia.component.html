@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="!loading">
     <div class="iconos">
       <h2>Experiencia</h2>
       <svg *ngIf="logeado" (click)="agregarElemento()" class="icon icon-tabler icon-tabler-plus" width="25" height="25" viewBox="0 0 24 24" stroke-width="2" stroke="#222831" fill="none" stroke-linecap="round" stroke-linejoin="round">

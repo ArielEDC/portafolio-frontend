@@ -24,14 +24,15 @@ export class ExperienciaComponent implements OnInit {
         }
       }
 
-    logeado: boolean = this.auth.logIn;
-
+    logeado:boolean = this.auth.logIn;
+    loading:boolean = true;
 
   constructor(private datos:PortfolioService, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.datos.verExp().subscribe(data=>{
       this.expList = data;
+      this.loading = false;
     })
     for(let exp of this.expList){
       this.modificable.push(false);

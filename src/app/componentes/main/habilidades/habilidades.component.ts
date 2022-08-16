@@ -27,12 +27,14 @@ export class HabilidadesComponent implements OnInit {
         "id": 11}
     }
     logeado:boolean = this.auth.logIn;
+    loading:boolean = true;
 
   constructor(private datos:PortfolioService,private auth:AuthService) { }
 
   ngOnInit(): void {
     this.datos.verHab().subscribe(data=>{
       this.habilidadList = data;
+      this.loading = false;
     })
     this.datos.verSubHab().subscribe(data=>{
       this.subHabilidadList = data;

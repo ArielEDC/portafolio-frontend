@@ -21,12 +21,14 @@ export class ProyectosComponent implements OnInit {
         }
   }
   logeado:boolean = this.auth.logIn;
+  loading:boolean = true;
 
   constructor(private datos:PortfolioService, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.datos.verProy().subscribe(data=>{
       this.proyList = data;
+      this.loading = false;
     });
     for(let proy of this.proyList){
       this.modificable.push(false);

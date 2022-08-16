@@ -1,8 +1,10 @@
 
 <section>
     
-    <h2>Sobre mi</h2>
-         
+  <app-loading class="loading" *ngIf="loading"></app-loading>
+    <h2 *ngIf="!loading">Sobre mi</h2>
+    
+
     <div class="card">
         <p>{{miPortfolio.sobreMi}}</p>
         <div class="editar" *ngIf="logeado">

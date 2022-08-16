@@ -6,6 +6,11 @@ section{
     margin: 1rem;
     color: var(--oscuro);
 }
+section .loading{
+    display: flex;
+    justify-content: center;
+}
+
 .card p{
     margin: auto 0;
 }

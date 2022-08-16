@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
 
@@ -19,13 +18,15 @@ export class EducacionComponent implements OnInit {
     "fechaFin": "2022-05-30",
     "personaid": 1};
   
-    logeado: boolean = this.auth.logIn;
+    logeado:boolean = this.auth.logIn;
+    loading:boolean = true;
   
   constructor(private datos:PortfolioService, private auth:AuthService) { }
 
   ngOnInit(): void {
     this.datos.verEducacion().subscribe(data=>{
       this.educacionList = data;
+      this.loading = false;
     });
     for(let educacion of this.educacionList){
       this.modificable.push(false);

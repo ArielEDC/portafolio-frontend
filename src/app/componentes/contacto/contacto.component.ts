@@ -11,6 +11,7 @@ import { PortfolioService } from 'src/app/servicio/portfolio.service';
 export class ContactoComponent implements OnInit {
 
   form:FormGroup;
+  loading:boolean = true;
 
   constructor(private formBuilder:FormBuilder, private datos:PortfolioService, private ruta:Router) { 
 
@@ -23,6 +24,9 @@ export class ContactoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.datos.verPersona().subscribe(data=>{
+      this.loading = false;
+    })
   }
 
   get Nombre(){

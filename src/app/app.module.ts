@@ -18,6 +18,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { PortfolioService } from './servicio/portfolio.service';
 import { InterceptorService } from './servicio/interceptor.service';
+import { LoadingComponent } from './componentes/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { InterceptorService } from './servicio/interceptor.service';
     HabilidadesComponent,
     ProyectosComponent,
     ContactoComponent,
-    LoginComponent
+    LoginComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
