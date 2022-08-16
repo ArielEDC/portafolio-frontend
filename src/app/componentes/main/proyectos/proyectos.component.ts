@@ -30,11 +30,11 @@ export class ProyectosComponent implements OnInit {
       this.proyList = data;
       this.loading = false;
     });
-    for(let proy of this.proyList){
+    /*for(let proy of this.proyList){
       this.modificable.push(false);
-    }
+    }*/
   }
-
+  
   habilitarEdicion(id:number){
 
     if(this.modificable[id]){

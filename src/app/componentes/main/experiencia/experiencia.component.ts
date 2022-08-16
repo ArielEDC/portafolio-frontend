@@ -34,9 +34,9 @@ export class ExperienciaComponent implements OnInit {
       this.expList = data;
       this.loading = false;
     })
-    for(let exp of this.expList){
+    /*for(let exp of this.expList){
       this.modificable.push(false);
-    }
+    }*/
   }
 
   habilitarEdicion(id:number){

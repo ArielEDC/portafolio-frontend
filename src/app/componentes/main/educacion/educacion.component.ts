@@ -28,9 +28,9 @@ export class EducacionComponent implements OnInit {
       this.educacionList = data;
       this.loading = false;
     });
-    for(let educacion of this.educacionList){
+    /*for(let educacion of this.educacionList){
       this.modificable.push(false);
-    }
+    }*/
   }
 
 

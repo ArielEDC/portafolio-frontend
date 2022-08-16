@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
-import { LoadingComponent } from '../../loading/loading.component';
 
 @Component({
   selector: 'app-sobre-mi',
@@ -10,7 +9,7 @@ import { LoadingComponent } from '../../loading/loading.component';
 })
 export class SobreMiComponent implements OnInit {
   
-  miPortfolio:any;
+  miPortfolio:any ="";
   modificable:boolean =false;
   loading:boolean = true;
 

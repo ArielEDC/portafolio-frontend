@@ -39,9 +39,9 @@ export class HabilidadesComponent implements OnInit {
     this.datos.verSubHab().subscribe(data=>{
       this.subHabilidadList = data;
     })
-    for(let hab of this.habilidadList){
+    /*for(let hab of this.habilidadList){
       this.modificable.push(false);
-    }
+    }*/
   }
   habilitarEdicion(id:number){
 
