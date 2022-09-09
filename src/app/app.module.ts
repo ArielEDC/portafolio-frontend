@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { PortfolioService } from './servicio/portfolio.service';
 import { InterceptorService } from './servicio/interceptor.service';
 import { LoadingComponent } from './componentes/loading/loading.component';
+import { DragDropModule } from '@angular/cdk/drag-drop'
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LoadingComponent } from './componentes/loading/loading.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragDropModule
   ],
   providers: [PortfolioService,
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
