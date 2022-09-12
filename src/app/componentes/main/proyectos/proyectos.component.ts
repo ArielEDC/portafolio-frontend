@@ -1,4 +1,4 @@
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { PortfolioService } from 'src/app/servicio/portfolio.service';
@@ -31,9 +31,6 @@ export class ProyectosComponent implements OnInit {
       this.proyList = data;
       this.loading = false;
     });
-    /*for(let proy of this.proyList){
-      this.modificable.push(false);
-    }*/
   }
   
   habilitarEdicion(id:number){
@@ -64,4 +61,14 @@ export class ProyectosComponent implements OnInit {
     this.modificable[id] = false;
   }
 
+  onDropped(evento:CdkDragDrop<any>){
+    console.log(evento);
+    const anterior = evento.previousIndex;
+    const actual = evento.currentIndex;
+    moveItemInArray(this.proyList, anterior, actual);
+    if(this.logeado){
+      this.datos.editarListaProy(this.proyList);
+      console.log("lista editada");
+    }
+  }
 }

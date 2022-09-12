@@ -108,6 +108,9 @@ export class PortfolioService {
     this.http.delete(this.direccion + "proyecto/borrar/"+id).subscribe();
     location.reload();
   }
+  editarListaProy(lista:any){
+    this.http.put(this.direccion + "proyecto/editarLista",lista).subscribe();
+  }
 
   // metodos Contacto
   nuevoMensaje(mensaje:any){
