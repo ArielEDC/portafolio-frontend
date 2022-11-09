@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 })
 export class PortfolioService {
 
-  direccion:string = "https://app-portfolio-ad.herokuapp.com/app/";
+  direccion:string = "https://web-production-173b.up.railway.app/app/";
 
   constructor(private http:HttpClient) { }
 
