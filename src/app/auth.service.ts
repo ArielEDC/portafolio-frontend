@@ -8,7 +8,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 })
 export class AuthService {
 
-  url = 'https://app-portfolio-ad.herokuapp.com/auth/';
+  url = 'https://web-production-173b.up.railway.app/auth/';
   userCurrentSubject: BehaviorSubject<any>;
   token:any;
 
