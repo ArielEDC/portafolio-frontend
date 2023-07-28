@@ -9,7 +9,7 @@ export class PortfolioService {
 
   
 
-  direccion:string = "https://web-production-173b.up.railway.app/app/";
+  direccion:string = "https://web-production-173b.onrender.com/app/";
 
   constructor(private http:HttpClient) { }
 

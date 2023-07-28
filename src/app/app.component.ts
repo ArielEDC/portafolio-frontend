@@ -21,6 +21,12 @@ export class AppComponent {
   };
 
   // Initialize Firebase
-  app = initializeApp(this.firebaseConfig);
-  analitica = getAnalytics(this.app);
+  //app = initializeApp(this.firebaseConfig);
+  //analitica = getAnalytics(this.app);
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    //initializeApp(this.firebaseConfig);
+    getAnalytics(initializeApp(this.firebaseConfig));
+  }
 }
