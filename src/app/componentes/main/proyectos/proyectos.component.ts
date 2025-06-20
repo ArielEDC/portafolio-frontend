@@ -13,7 +13,6 @@ export class ProyectosComponent implements OnInit {
   proyList:any;
   modificable:boolean[] = [];
   proy:any={
-        "id": 0,
         "nombre": "nombre",
         "descripcion": "descripcion",
         "link": "link",

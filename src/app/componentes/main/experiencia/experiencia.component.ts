@@ -13,12 +13,11 @@ export class ExperienciaComponent implements OnInit {
   expList:any;
   modificable:boolean[] = [];
   exp:any={
-        "id": 0,
-        "trabajo": "Robotica Industrial",
-        "empresa": "Proto Automatismos Industriales",
-        "descripcion": "Robotica Fanuc, Kuka, Kawasaki",
-        "fechaInicio": "2017-06-05",
-        "fechaFin": "2021-06-05",
+        "trabajo": "trabajo",
+        "empresa": "empresa",
+        "descripcion": "descripción",
+        "fechaInicio": "2020-01-31",
+        "fechaFin": "2020-01-31",
         "personaid": {
             "id": 1
         }
@@ -34,9 +33,6 @@ export class ExperienciaComponent implements OnInit {
       this.expList = data;
       this.loading = false;
     })
-    /*for(let exp of this.expList){
-      this.modificable.push(false);
-    }*/
   }
 
   habilitarEdicion(id:number){

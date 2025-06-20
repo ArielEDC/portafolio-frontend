@@ -15,16 +15,9 @@ export class HabilidadesComponent implements OnInit {
   corresponde:boolean = false;
   modificable:boolean[] = [];
   hab:any={
-    "id": 0,
-    "habilidad": "Frontend",
+    "habilidad": "Habilidad",
     "personaid": {
         "id": 1}
-    }
-  subHab:any={
-    "id": 0,
-    "subHabilidad": "html",
-    "habilidadId": {
-        "id": 11}
     }
     logeado:boolean = this.auth.logIn;
     loading:boolean = true;
@@ -39,9 +32,6 @@ export class HabilidadesComponent implements OnInit {
     this.datos.verSubHab().subscribe(data=>{
       this.subHabilidadList = data;
     })
-    /*for(let hab of this.habilidadList){
-      this.modificable.push(false);
-    }*/
   }
   habilitarEdicion(id:number){
 
@@ -59,8 +49,7 @@ export class HabilidadesComponent implements OnInit {
   agregarSubHabilidad(id:number){
     this.subHabilidadList.push(
       {
-        "id": 0,
-        "subHabilidad": "html",
+        "subHabilidad": "subhabilidad",
         "habilidadId": {
             "id": id}
         }

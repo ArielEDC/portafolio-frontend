@@ -11,11 +11,11 @@ export class EducacionComponent implements OnInit {
 
   educacionList:any;
   modificable:boolean[] = [];
-  edu:any={"id": 0,
+  edu:any={
     "institucion": "institucion",
     "titulo": "titulo",
-    "fechaInicio": "2021-04-24",
-    "fechaFin": "2022-05-30",
+    "fechaInicio": "2020-01-31",
+    "fechaFin": "2020-01-31",
     "personaid": 1};
   
     logeado:boolean = this.auth.logIn;
@@ -28,9 +28,6 @@ export class EducacionComponent implements OnInit {
       this.educacionList = data;
       this.loading = false;
     });
-    /*for(let educacion of this.educacionList){
-      this.modificable.push(false);
-    }*/
   }
 
 

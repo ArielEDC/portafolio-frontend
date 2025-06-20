@@ -1,16 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PortfolioService {
 
+  direccion:string = environment.url + "app/";
   
-
-  direccion:string = "https://web-production-173b.onrender.com/app/";
-
   constructor(private http:HttpClient) { }
 
 
