@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class PortfolioService {
 
-  direccion:string = environment.url + "app/";
+  direccion:string = environment.url;
   
   constructor(private http:HttpClient) { }
 
