@@ -1,8 +1,20 @@
 /* FOOTER */
 footer{
+    display: block;
     background-color: var(--oscuro);
-}
-footer p{
     color: var(--blanco);
     text-align: center;
 }
+@media(min-width: 700px){
+    footer{
+        
+        display: flex;
+    justify-content: space-evenly;
+    }
+}
+ 
+footer a{
+    color: var(--blanco);
+    
+}
+    
