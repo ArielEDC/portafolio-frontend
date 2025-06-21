@@ -1,7 +1,10 @@
 /* FOOTER */
+.bg-footer{
+    background-color: var(--oscuro);
+}
+
 footer{
     display: block;
-    background-color: var(--oscuro);
     color: var(--blanco);
     text-align: center;
 }
